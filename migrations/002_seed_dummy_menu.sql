@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 3.3 seconds
-Output:
 TRUNCATE menu_items CASCADE;
 
 INSERT INTO menu_items (
