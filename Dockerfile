@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 3.1 seconds
-Output:
 FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
