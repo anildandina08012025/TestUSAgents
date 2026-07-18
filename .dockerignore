@@ -1,0 +1,15 @@
+Exit code: 0
+Wall time: 0.7 seconds
+Output:
+.env
+.env.cloud
+.git
+.gitignore
+__pycache__
+*.py[cod]
+*.log
+.venv
+venv
+.vscode
+.idea
+
