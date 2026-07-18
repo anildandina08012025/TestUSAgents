@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 3.1 seconds
-Output:
 import os
 from decimal import Decimal
 from typing import Any
