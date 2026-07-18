@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 3.1 seconds
-Output:
 # Internet Voice Ordering Agent
 
 This is the local browser-based voice ordering demo.
