@@ -1,0 +1,65 @@
+Exit code: 0
+Wall time: 3.1 seconds
+Output:
+services:
+  # Public browser page. Render assigns its public HTTPS URL after deployment.
+  - type: web
+    name: voice-ordering-web
+    runtime: docker
+    region: singapore
+    plan: starter
+    healthCheckPath: /health
+    dockerCommand: python web_ordering_app.py
+    envVars:
+      - key: LIVEKIT_URL
+        sync: false
+      - key: LIVEKIT_API_KEY
+        sync: false
+      - key: LIVEKIT_API_SECRET
+        sync: false
+      - key: DEEPGRAM_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+
+  # Always-on LiveKit worker. It joins the voice rooms created by the web service.
+  - type: worker
+    name: voice-ordering-agent
+    runtime: docker
+    region: singapore
+    plan: starter
+    dockerCommand: python internet_ordering_agent.py start
+    envVars:
+      - key: LIVEKIT_URL
+        fromService:
+          type: web
+          name: voice-ordering-web
+          envVarKey: LIVEKIT_URL
+      - key: LIVEKIT_API_KEY
+        fromService:
+          type: web
+          name: voice-ordering-web
+          envVarKey: LIVEKIT_API_KEY
+      - key: LIVEKIT_API_SECRET
+        fromService:
+          type: web
+          name: voice-ordering-web
+          envVarKey: LIVEKIT_API_SECRET
+      - key: DEEPGRAM_API_KEY
+        fromService:
+          type: web
+          name: voice-ordering-web
+          envVarKey: DEEPGRAM_API_KEY
+      - key: GROQ_API_KEY
+        fromService:
+          type: web
+          name: voice-ordering-web
+          envVarKey: GROQ_API_KEY
+      - key: DATABASE_URL
+        fromService:
+          type: web
+          name: voice-ordering-web
+          envVarKey: DATABASE_URL
+
