@@ -1,0 +1,31 @@
+Exit code: 0
+Wall time: 3.1 seconds
+Output:
+# Secrets — never commit these
+.env
+.env.cloud
+*.pem
+ec2_temp_key
+ec2_temp_key.pub
+
+# Claude Code internal
+.claude/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs
+*.log
+*.db
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
