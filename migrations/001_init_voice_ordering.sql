@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 3.1 seconds
-Output:
 CREATE TABLE IF NOT EXISTS menu_items (
     product_id TEXT PRIMARY KEY,
     category TEXT NOT NULL,
